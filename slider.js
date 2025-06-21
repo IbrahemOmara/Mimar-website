@@ -26,3 +26,31 @@ window.addEventListener("scroll", function () {
         header.classList.remove("scrolled");
     }
 });
+
+
+
+
+// overlay
+
+const modal = document.getElementById("serviceModal");
+const modalTitle = document.getElementById("modalTitle");
+const modalDesc = document.getElementById("modalDesc");
+const closeModal = document.getElementById("closeModal");
+
+document.querySelectorAll(".learn-more-btn").forEach(btn => {
+btn.addEventListener("click", function () {
+    modalTitle.textContent = this.getAttribute("data-title");
+    modalDesc.textContent = this.getAttribute("data-description");
+    modal.style.display = "flex";
+});
+});
+
+closeModal.addEventListener("click", () => {
+modal.style.display = "none";
+});
+
+window.addEventListener("click", (e) => {
+if (e.target === modal) {
+    modal.style.display = "none";
+}
+});
