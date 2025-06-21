@@ -27,4 +27,12 @@ translatePage(currentLang);
 langToggleBtn.textContent = currentLang === 'en' ? 'AR' : 'EN';
 
 
+// زرار الطلوع لاعلي الصفحه
+
+function scrollToTop() {
+window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+});
+}
 
