@@ -220,13 +220,18 @@
             <!-- الجزء الثالث: الفورم -->
             <div class="footer-form">
             <h3>راسلنا</h3>
-            <form>
-                <input type="text" placeholder="الاسم" required>
-                <input type="tel" placeholder="رقم الهاتف" required>
-                <input type="email" placeholder="البريد الإلكتروني" required>
-                <textarea placeholder="رسالتك" required></textarea>
-                <button type="submit">إرسال</button>
+            <form id="contactForm" action="https://formsubmit.co/info@mimar.sa" method="POST">
+            <input type="hidden" name="_subject" value="رسالة جديدة من موقع الشركة">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+
+            <input type="text" name="name" placeholder="الاسم" required>
+            <input type="tel" name="phone" placeholder="رقم الهاتف" required>
+            <input type="email" name="email" placeholder="البريد الإلكتروني" required>
+            <textarea name="message" placeholder="رسالتك" required></textarea>
+            <button type="submit">إرسال</button>
             </form>
+
             </div>
         </div>
 
@@ -246,6 +251,29 @@
 
 
 <script src="script.js">
+
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault(); // امنع الإرسال العادي
+        const form = this;
+        fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+        }).then(response => {
+        if (response.ok) {
+            form.style.display = 'none'; // اخفي الفورم
+            const msg = document.createElement('div');
+            msg.innerHTML = "<h3 style='color: #4CAF50;'>تم إرسال رسالتك بنجاح! سنرد عليك قريبًا.</h3>";
+            form.parentNode.appendChild(msg);
+        } else {
+            alert("حدث خطأ أثناء الإرسال. حاول مرة أخرى.");
+        }
+        }).catch(error => {
+        alert("حدث خطأ أثناء الإرسال. حاول مرة أخرى.");
+        });
+    });
+
+
 </script>
 
 </body>
