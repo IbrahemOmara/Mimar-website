@@ -1,41 +1,8 @@
-const hamburger = document.getElementById("hamburger");
+
 const sideMenu = document.getElementById("sideMenu");
-const closeBtn = document.getElementById("closeBtn");
 
-hamburger.addEventListener("click", () => {
-  hamburger.classList.toggle("active");
-  sideMenu.classList.toggle("open");
-});
 
-// زر الإغلاق داخل المنيو
-closeBtn.addEventListener("click", () => {
-  sideMenu.classList.remove("open");
-  hamburger.classList.remove("active");
-});
 
-// إغلاق المنيو لما المستخدم يضغط على أي رابط فيها
-document.querySelectorAll(".side-menu a").forEach(link => {
-  link.addEventListener("click", () => {
-    sideMenu.classList.remove("open");
-    hamburger.classList.remove("active");
-  });
-});
-
-// إغلاق المنيو لو ضغط المستخدم خارجها
-document.addEventListener("click", (e) => {
-  const isClickInsideMenu = sideMenu.contains(e.target);
-  const isClickOnHamburger = hamburger.contains(e.target);
-  if (!isClickInsideMenu && !isClickOnHamburger) {
-    sideMenu.classList.remove("open");
-    hamburger.classList.remove("active");
-  }
-});
-
-// إرسال الفورم زي ما كان
-document.querySelector("form").addEventListener("submit", (e) => {
-  e.preventDefault();
-  alert("تم إرسال رسالتك بنجاح!");
-});
 
 
 
@@ -111,4 +78,52 @@ const slides = document.querySelectorAll(".slide");
 
 
 
-    
+// تشغيل و مميزات overlay
+document.addEventListener("DOMContentLoaded", function () {
+  const cards = document.querySelectorAll(".card");
+  const overlay = document.getElementById("overlay");
+  const overlayImage = document.getElementById("overlayImage");
+  const overlayTitle = document.getElementById("overlayTitle");
+  const overlayDescription = document.getElementById("overlayDescription");
+  const closeOverlay = document.getElementById("closeOverlay");
+  const overlayPrev = document.getElementById("overlayPrev");
+  const overlayNext = document.getElementById("overlayNext");
+
+  const projectData = Array.from(cards).map(card => ({
+    img: card.querySelector("img").src,
+    title: card.querySelector("h3").textContent,
+    desc: card.querySelector("p").textContent,
+  }));
+
+  let currentIndex = 0;
+
+  function openOverlay(index) {
+    const project = projectData[index];
+    overlayImage.src = project.img;
+    overlayTitle.textContent = project.title;
+    overlayDescription.textContent = project.desc;
+    overlay.style.display = "flex";
+    currentIndex = index;
+  }
+
+  function closeOverlayFunc() {
+    overlay.style.display = "none";
+  }
+
+  cards.forEach((card, index) => {
+    card.addEventListener("click", () => openOverlay(index));
+  });
+
+  closeOverlay.addEventListener("click", closeOverlayFunc);
+
+  overlayPrev.addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + projectData.length) % projectData.length;
+    openOverlay(currentIndex);
+  });
+
+  overlayNext.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % projectData.length;
+    openOverlay(currentIndex);
+  });
+});
+

@@ -4,31 +4,22 @@
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title> شركه معمار الحديثه</title>
+    <title>شركه معمار | معمار الافق الذهبي</title>
+    <link rel="shortcut icon" href="./images/mimarlogo-Photoroom.png" type="image/x-icon">
     <link rel="stylesheet" href="style2.css"/>
 </head>
 <body>
 <header>
     <div class="container header-container">
     <a href="#" class="logo">  <img src="./images/mimarlogo-Photoroom.png" class="logo-img"></a>
-    <div class="hamburger" id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
+    <div class="hamburger navigation" id="hamburger" >
+            <a href="#services" data-translate="navServices">الخدمات</a>
+            <a href="#projects" data-translate="navNews">المشاريع</a>
+            <a href="#contactUs" data-translate="navContact">تواصل معنا</a>
     </div>
     </div>
 </header>
 
-<!-- المنيو الجانبية -->
-<nav class="side-menu" id="sideMenu">
-    <button class="close-btn" id="closeBtn">&times;</button>
-    <ul class="nav-links">
-        <li><a href="#about">من نحن</a></li>
-        <li><a href="#projects">مشاريعنا</a></li>
-        <li><a href="#services">خدماتنا</a></li>
-        <li><a href="#contact">تواصل معنا</a></li>
-    </ul>
-</nav>
 
 
 <!-- البانر الرئيسي -->
@@ -36,16 +27,16 @@
 <section class="slider" id="slider">
     <div class="slides">
         <div class="slide">
-            <img src="/images/11.jpg" alt="صورة 1">
-            <div class="caption">هذا نص فوق الصورة الأولى</div>
+            <img src="/images/6.jpg" alt="صورة 1">
+            <div class="caption">تميزنا في فنون العماره الحديثه و ناطحات السحاب</div>
         </div>
             <div class="slide">
-            <img src="/images/22.jpg" alt="صورة 2">
-        <div class="caption">هذا نص فوق الصورة الثانية</div>
+            <img src="/images/2.jpg" alt="صورة 2">
+        <div class="caption">اتقان الفن و التراث الاسلامي و العربي في العماره</div>
         </div>
         <div class="slide">
-            <img src="/images/33.jpg" alt="صورة 3">
-            <div class="caption">هذا نص فوق الصورة الثالثة</div>
+            <img src="/images/3.jpg" alt="صورة 3">
+            <div class="caption">اهتمامنا بالتفاصيل الدقيقه و اتقان التنفيذ السليم </div>
         </div>
     </div>
 
@@ -71,21 +62,11 @@
 </section>
 
 <!-- sec3 -->
-<section class="map-section">
-    <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3621.566170916049!2d46.67345017471174!3d24.711789377077328!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f038d5fb8a4ab%3A0x95c2a44021ee11cb!2z2YXYs9in2YUg2KfZhNis2KfZhdi52Kkg2KfZhNmF2LXYsSDYp9mE2YPYp9iv2KfZgdiq!5e0!3m2!1sar!2ssa!4v1719737512000!5m2!1sar!2ssa"
-        width="100%"
-        height="500"
-        style="border:0;"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-</section>
+
 
 <!--  ما يميزنا -->
 
-<section class="features-section">
+<section class="features-section" id="services">
     
     <div class="container">
         <h2 class="section-title">ما يميزنا عن غيرنا</h2>
@@ -133,7 +114,7 @@
 
 <!--  sec 5 -->
 
-<section class="collection-section">
+<section class="collection-section" id="projects">
     <div class="container">
         <div class="collection-grid">
         <!-- العمود الأول: النص -->
@@ -168,6 +149,17 @@
     </div>
 </section>
 
+<!-- model overlay-->
+<div class="overlay" id="overlay">
+  <div class="overlay-content">
+    <span class="close-overlay" id="closeOverlay">&times;</span>
+    <img id="overlayImage" src="" alt="Project Image">
+    <h3 id="overlayTitle"></h3>
+    <p id="overlayDescription"></p>
+    <button class="overlay-arrow prev" id="overlayPrev">&#10094;</button>
+    <button class="overlay-arrow next" id="overlayNext">&#10095;</button>
+  </div>
+</div>
 
 
 <!-- شركاء النجاح  -->
@@ -197,7 +189,7 @@
 </section>
 
 
-<footer class="footer">
+<footer class="footer" id="contactUs">
         <div class="container footer-content">
             <!-- الجزء الأول: اللوجو -->
             <div class="footer-logo">
@@ -212,11 +204,11 @@
             <div class="contact-cards">
                 <div class="contact-card">
                 <i class="fas fa-phone"></i>
-                <span>+966 123 456 789</span>
+                <span>+1 555-555-5556</span>
                 </div>
                 <div class="contact-card">
                 <i class="fas fa-envelope"></i>
-                <span>info@example.com</span>
+                <span>info@mimar.sa</span>
                 </div>
                 <div class="contact-card">
                 <i class="fas fa-map-marker-alt"></i>
@@ -240,10 +232,10 @@
 
         <div class="footer-social">
             <div class="social-links">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61577643560676" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://x.com/MimaarCO" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.linkedin.com/in/mimar-co-b3864336b/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.instagram.com/mimaarco/?hl=ar" target="_blank"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
 
@@ -255,5 +247,6 @@
 
 <script src="script.js">
 </script>
+
 </body>
 </html>

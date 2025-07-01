@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   font-family: 'Cairo', sans-serif;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -18,25 +19,44 @@ body {
   margin: auto;
 }
 
-header {
-  background: #ffffff;
-  color: #fff;
-  padding: .5rem 0;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
+header{
 
-.container.header-container {
-  display: flex;
-  justify-content: space-between;
+    top: 0;
+    background: transparent;
+    transition: all 0.5s ease;
+    width: 100%;
+    position: fixed;
+    z-index: 999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 150px;
+    background-color: #fff;
+}
+.container.header-container{
   align-items: center;
 }
 
 /* الحجم الطبيعي */
 .logo-img {
-    height: 90px;
+    height: 80px;
     transition: all 0.3s ease;
+}
+
+
+
+.navigation a{
+    text-decoration: none;
+    color:#0e5a66;
+    font-size: 1.2em;
+    font-weight:500;
+    padding-left:30px;
+
+
+}
+
+.navigation a:hover{
+    color:#088395;
 }
 
 .nav-links {
@@ -150,88 +170,15 @@ section h2 {
 
 /*----------------------------------*/
 
-.hamburger {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-}
-
-.hamburger span {
-  width: 25px;
-  height: 3px;
-  background: #012e41;
-  display: block;
-  transition: all 0.3s ease;
-}
-
-/* المنيو الجانبية */
-.side-menu {
-  position: fixed;
-  top: 0;
-  right: -250px; /* مخفية خارج الشاشة */
-  width: 200px;
-  height: 100%;
-  background: #012e41;
-  color: #fff;
-  padding-top: 4rem;
-  transition: right 0.3s ease;
-  z-index: 999;
-}
-
-.side-menu.open {
-  right: 0;
-}
-
-.side-menu ul {
-  list-style: none;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  gap: 1.5rem;
-  padding: 0 1.5rem;
-}
-
-.side-menu ul li a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 1.2rem;
-  transition: color 0.3s;
-}
-
-.side-menu ul li a:hover {
-  color: #f39c12;
-}
-
-.close-btn {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  font-size: 2rem;
-  color: #fff;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-}
-
-
-
-
 
 .slider {
     padding: 0;
     position: relative;
     width: 100%;
-    height: 500px;
+    height: 600px;
     overflow: hidden;
 }
 
-.slider {
-    position: relative;
-    width: 100%;
-    height: 500px;
-    overflow: hidden;
-}
 
 .slide {
 position: absolute;
@@ -246,6 +193,7 @@ transition: opacity 0.8s ease, transform 0.8s ease;
 opacity: 1;
 z-index: 1;
 }
+
 
 .slide.active {
     opacity: 1;
@@ -421,14 +369,81 @@ background-color: #f6d08b;
 
 
 
-/*---------------section 3 (map)--------------*/
-.map-section {
-    width: 100%;
-    height: 400px;
-    position: relative;
-    overflow: hidden;
-    margin: 0;
+/*---------------overlay--------------*/
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+  direction: rtl;
+  transition: opacity 0.4s ease;
 }
+
+.overlay.show {
+  display: flex;
+  opacity: 1;
+}
+
+.overlay-content {
+  background: #fff;
+  padding: 20px;
+  height: 80%;
+  width: 100%;
+  overflow-y: auto;
+  text-align: center;
+  border-radius: 10px;
+  position: relative;
+  transform: scale(0.8);
+  transition: transform 0.4s ease;
+}
+
+.overlay.show .overlay-content {
+  transform: scale(1);
+}
+
+.overlay-content img {
+  max-width: 50%;
+  max-height: 300px;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.close-overlay {
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  font-size: 28px;
+  color: #333;
+  cursor: pointer;
+}
+.overlay-arrow {
+  position: absolute;
+  top: 50%;
+  font-size: 30px;
+  color: #333;
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  z-index: 10;
+  transition: background 0.3s;
+}
+
+.overlay-arrow:hover {
+  background: rgba(255, 255, 255, 1);
+}
+
+.overlay-arrow.prev { right: 60px; }
+.overlay-arrow.next { left: 60px; }
 
 
 
