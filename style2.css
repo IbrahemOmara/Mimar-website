@@ -858,3 +858,128 @@ background-color: #f6d08b;
     text-decoration: none;
     color: #cccccc;
 }
+
+
+
+/* ---------------- Responsive Design ---------------- */
+
+/* الأجهزة التابلت (شاشة أقل من 992px) */
+@media (max-width: 992px) {
+  header {
+    padding: 10px 40px;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .content-box .text h1 {
+    font-size: 1rem;
+  }
+  .content-box .text p{
+    font-size: .8rem;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .content-box,
+  .content-box.two {
+    text-align: center;
+  }
+
+  .content-box img {
+    width: 90%;
+    height: auto;
+  }
+
+  .text-side,
+  .cards-grid {
+    min-width: 100%;
+  }
+
+  .collection-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .feature-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .feature-text {
+    padding-left: 0;
+  }
+
+  .logo-group img {
+    height: 120px;
+    margin: 0 20px;
+  }
+}
+
+/* الهواتف المحمولة (شاشة أقل من 768px) */
+@media (max-width: 768px) {
+  .hero-content h2 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+
+  .container {
+    width: 95%;
+    padding: 0 10px;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .collection-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card img {
+    width: 100%;
+    height: auto;
+  }
+
+  .logo-img {
+    height: 50px;
+  }
+
+  .arrow {
+    font-size: 1.5rem;
+    padding: 0.6rem;
+  }
+
+  .caption {
+    font-size: 1.2rem;
+    bottom: 10%;
+  }
+
+  .overlay-content img {
+    max-width: 90%;
+    max-height: 200px;
+  }
+
+  .split-bg-section {
+    height: 400px;
+  }
+
+  .split-bg-section .content-box img{
+    height: 200px;
+    width: 200px;
+  }
+
+  .collection-section {
+    flex-direction: column;
+    padding: 50px 1rem;
+  }
+}
